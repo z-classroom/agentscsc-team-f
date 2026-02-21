@@ -1,4 +1,4 @@
-# 565 Agent Starter Project - Template (Forkable)
+# 565 Agent Starter Project - Template
 
 This is a minimal, teachable agent skeleton for a computational social systems course.
 
@@ -27,10 +27,10 @@ To connect a real model, edit `src/llm_provider.py`.
 The base structure for your AI Agent.
 
 ## Project Structure
-- **config/**: Configuration files (`agent.yaml`, `policies.yaml`).
-- **prompts/**: System and style instructions for the LLM.
-- **src/**: Core Python logic including memory and provider settings.
-- **tests/**: Scripts for adversarial testing (Red Teaming).
+- config/: Configuration files (`agent.yaml`, `policies.yaml`).
+- prompts/: System and style instructions for the LLM.
+- src/: Core Python logic including memory and provider settings.
+- tests/: Scripts for adversarial testing (Red Teaming).
 
 ## Assignment Tasks
 Please refer to the course syllabus for specific implementation requirements for `memory.py` and `agent.py`.
