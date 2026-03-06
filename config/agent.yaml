@@ -1,6 +1,6 @@
 # configuration control file
 #Identifies the specific agent instance.
-agent_name: "TrustyAgent"
+agent_name: "FactSummarizer"
 version: "0.1"
 
 # A safety limit to prevent the agent from looping infinitely and wasting API credits.
