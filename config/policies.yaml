@@ -10,12 +10,14 @@ rules:
       - "(secret)"
       - "(token)"
 
-  - id: "no_illegal_harm"
-    description: "Do not provide instructions to commit wrongdoing or harm."
-    block_patterns:
-      - "(how to hack)"
-      - "(build a bomb)"
-      - "(phishing)"
+- id: "no_illegal_harm"
+  description: "Do not provide instructions to commit wrongdoing or harm."
+  block_patterns:
+    - "(how to hack)"
+    - "(how do i hack)"
+    - "(hack)"
+    - "(build a bomb)"
+    - "(phishing)"
 
   - id: "no_identity_claims"
     description: "Do not claim to be a real person or imply real-world verification."
