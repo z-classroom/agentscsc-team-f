@@ -13,6 +13,9 @@ This is a minimal, teachable agent skeleton for a computational social systems c
 
 By default the agent uses a **mock LLM** so it runs without any API keys.
 To connect a real model, edit `src/llm_provider.py`.
+Runtime selection order:
+1. Environment variables in .env (in which actual LLM API Credentails are defined)
+2. config/agent.yaml defaults
 
 ## What to edit for your project
 - Role + purpose: `prompts/system.md`
