@@ -29,14 +29,32 @@ class LLMProvider:
         if self.provider == "mock":
             return self._mock_response(system, messages, user, refusal_prompt, mode)
 
+        elif self.provider == "openai":
+            from openai import OpenAI
+            import os
+
+            client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+            response = client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system},
+                    *messages,
+                    {"role": "user", "content": user}
+                ],
+                temperature=0.7
+            )
+
+            return response.choices[0].message.content
+
+        else:
+            raise NotImplementedError(f"Provider {self.provider} not supported")
+
         # Placeholder for real integrations:
         # - call your provider SDK
         # - pass system + messages + user
         # - return text
-        raise NotImplementedError(
-            "Non-mock provider not configured. Edit src/llm_provider.py to add your LLM call."
-        )
-
+    
     def _mock_response(
         self, system: str, messages: List[Dict[str, str]], user: str, refusal_prompt: str, mode: str
     ) -> str:
