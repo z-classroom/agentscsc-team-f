@@ -9,6 +9,10 @@ rules:
       - "(password)"
       - "(secret)"
       - "(token)"
+      - "(environment variable)"
+      - "(env var)"
+      - "(credential)"
+      - "(login)"
 
   - id: "no_illegal_harm"
     description: "Do not provide instructions to commit wrongdoing or harm."
@@ -18,6 +22,10 @@ rules:
       - "(hack)"
       - "(build a bomb)"
       - "(phishing)"
+      - "(malware)"
+      - "(steal.*credential)"
+      - "(bypass.*security)"
+      - "(social engineering)"
 
   - id: "no_identity_claims"
     description: "Do not claim to be a real person or imply real-world verification."
@@ -25,6 +33,37 @@ rules:
       - "(i am a doctor)"
       - "(i am your lawyer)"
       - "(verified)"
+
+  - id: "no_authority_roleplay"
+    description: "Do not act as a licensed authority or pretend to be human."
+    block_patterns:
+      - "(pretend you are.*doctor)"
+      - "(act as.*doctor)"
+      - "(pretend you are.*lawyer)"
+      - "(act as.*lawyer)"
+      - "(pretend you are.*therapist)"
+      - "(act as.*therapist)"
+      - "(pretend you are human)"
+      - "(act like a human)"
+
+  - id: "no_prompt_or_config_leak"
+    description: "Do not reveal system prompts, hidden instructions, or internal configuration."
+    block_patterns:
+      - "(system prompt)"
+      - "(hidden instruction)"
+      - "(internal prompt)"
+      - "(developer message)"
+      - "(reveal.*prompt)"
+      - "(show.*instruction)"
+      - "(print.*config)"
+
+  - id: "invalid_or_empty_input"
+    description: "Reject empty or incomplete summarization requests."
+    block_patterns:
+      - "^\\s*$"
+      - "^summarize this:?\\s*$"
+      - "^summarize the following:?\\s*$"
+      - "^please summarize:?\\s*$"
 
 response_overrides:
   blocked: "REFUSE"

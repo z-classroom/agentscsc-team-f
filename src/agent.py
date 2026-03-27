@@ -27,6 +27,12 @@ class Agent:
         return f"{base}\n\n{style}".strip()
 
     def respond(self, user_text: str) -> str:
+        if not user_text.strip():
+            reply = "Please provide the text you want summarized or a specific question about the source."
+            self.logger.info("USER: %s", user_text)
+            self.logger.info("ASSISTANT: %s", reply)
+            return reply
+
         # 1) Policy check (governance layer)
         policy: PolicyResult = self.policy_engine.evaluate(user_text)
 
