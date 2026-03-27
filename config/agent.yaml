@@ -1,15 +1,15 @@
 # configuration control file
 #Identifies the specific agent instance.
 agent_name: "FactSummarizer"
-version: "0.1"
+version: "1.0"
 
 # A safety limit to prevent the agent from looping infinitely and wasting API credits.
 max_turns: 20
 
 # Tells the Python code whether to use a real LLM (OpenAI) or your "Mock" testing version.
 # "mock" runs offline with predictable behavior.
-llm_provider: "mock"
-llm_model: "mock-001"
+llm_provider: "openai"
+llm_model: "gpt-4o-mini"
 
 # Configures if the agent should remember past messages and how many to keep.
 memory:
