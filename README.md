@@ -5,15 +5,30 @@ This is a minimal, teachable agent skeleton for a computational social systems c
 
 ## Quickstart
 1) Create a virtual environment
-2) Install dependencies:
-   pip install -r requirements.txt
-3) Copy env:
-   cp .env.example .env
-4) Run:
-   python -m src.app
+   Windows PowerShell:
+   `python -m venv .venv`
+2) Activate it
+   Windows PowerShell:
+   `.venv\Scripts\Activate.ps1`
+3) Install dependencies:
+   `pip install -r requirements.txt`
+4) Copy env:
+   `Copy-Item .env.example .env`
+5) Edit `.env` and set:
+   `LLM_PROVIDER=openai`
+   `OPENAI_API_KEY=your_key_here`
+   `LLM_MODEL=gpt-4o-mini`
+6) Run:
+   `python -m src.app`
 
 By default the agent uses a **mock LLM** so it runs without any API keys.
-To connect a real model, edit `src/llm_provider.py`.
+Stage 2 uses the OpenAI Agents SDK through `src/llm_provider.py`.
+
+## Windows notes
+- If `python` is not recognized in PowerShell, install Python from python.org and enable "Add python.exe to PATH" during setup.
+- If PowerShell blocks activation, run:
+  `Set-ExecutionPolicy -Scope Process Bypass`
+- Git for Windows is fine for cloning the repo; the Python runtime is the separate requirement for running the app.
 
 ## What to edit for your project
 - Role + purpose: `prompts/system.md`
